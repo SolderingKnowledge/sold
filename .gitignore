@@ -1,2 +1,6 @@
+# ignore node_modules doesn't in client or in server on this level folder
 node_modules/
 .DS_Store
+
+# ignore from now on the content of .env file because i will be inserting sensetive informations
+.env
