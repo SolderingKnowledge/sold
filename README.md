@@ -9,6 +9,7 @@ npm i express #install express
 node server/index #run localhost:5000 => running backend
 npm i -D nodemon concurrently #install as dev devDependencies(it is during development)
 #with -D flag it installs in package.json as bellow:
+npm i dotenv #for easily managing environment variables
 ```
 ```json
 "devDependencies": {
