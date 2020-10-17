@@ -1,11 +1,23 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from "react-router-dom";
 import {Row, Col, Image, ListGroup, Card, Button} from "react-bootstrap";
 import Rating from "./Rating";
-import list from "../list.json";
+// import list from "../list.json";
+import axios from "axios";
 
 function Description({match}) {
-    const item = list.find(i => i.id === match.params.id);
+    const [item, setItem] = useState({});
+
+    useEffect(()=>{
+        const fetchItem = async ()=> {
+            const {data} = await axios.get(`/api/list/${match.params.id}`);
+            console.log("myRes", data);
+            setItem(data);
+        }
+        fetchItem();
+    }, [match]);// useEffect it is the same as componentDidMount();
+
+    // const item = list.find(i => i.id === match.params.id);
     return (
         <>
             <Link className="btn btn-light my-3" to="/">{/* go back to homescreen */}

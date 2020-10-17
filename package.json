@@ -1,0 +1,31 @@
+{
+  "name": "sold",
+  "version": "1.0.0",
+  "description": "Ideal platform for everyone.",
+  "main": "index.js",
+  "scripts": {
+    "server": "node server/index",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watchServer": "nodemon server/index",
+    "client": "npm start --prefix client",
+    "both": "concurrently \"npm run watchServer\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SolderingKnowledge/sold.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SolderingKnowledge/sold/issues"
+  },
+  "homepage": "https://github.com/SolderingKnowledge/sold#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.5"
+  }
+}
