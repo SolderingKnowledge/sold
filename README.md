@@ -27,3 +27,8 @@ npm i dotenv #for easily managing environment variables
     "both": "concurrently \"npm run watchServer\" \"npm run client\"", //tell concurrently to run "npm run watchServer" "npm run client"
 },
 ```
+```json
+{
+    "type": "module", //using ES6 syntax for import export in nodejs environment
+}
+```
