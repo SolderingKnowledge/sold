@@ -1,0 +1,10 @@
+main { /*main tag */
+    min-height: 80vh;/* view-port:heights, goes to below to footer section*/
+}
+h3 {
+    padding: 1rem 0;
+}
+
+.rating span {
+    margin: 0.1rem;
+}
