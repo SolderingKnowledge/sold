@@ -1,6 +1,6 @@
 # SOLD PLATFORM
 Ideal platform for everyone.
-## FULL STACK APPLICATION
+### FULL STACK APPLICATION
 
 
 ```bash
