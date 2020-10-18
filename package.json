@@ -9,7 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watchServer": "nodemon server/index",
     "client": "npm start --prefix client",
-    "both": "concurrently \"npm run watchServer\" \"npm run client\""
+    "both": "concurrently \"npm run watchServer\" \"npm run client\"",
+    "data:upload": "node server/dataSeeder.js",
+    "data:delete": "node server/dataSeeder.js -d"
   },
   "repository": {
     "type": "git",
@@ -23,8 +25,12 @@
   },
   "homepage": "https://github.com/SolderingKnowledge/sold#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "mongoose": "^5.10.9"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",

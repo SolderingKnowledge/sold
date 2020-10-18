@@ -7,11 +7,11 @@ function Details({item}) {
     // const {name} = props;
     return (
         <Card className="my-3 p-3 rounded">
-            <Link to={`/details/${item.id}`}>
+            <Link to={`/${item._id}`}>
                 <Card.Img src={item.img} variant="top" />
             </Link>
             <Card.Body>
-                <Link to={`/details/${item.id}`}>
+                <Link to={`/${item._id}`}>
                     <Card.Title as="div">
                         <strong>{item.name}</strong>
                     </Card.Title>

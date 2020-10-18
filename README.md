@@ -11,6 +11,10 @@ node server/index #run localhost:5000 => running backend
 npm i -D nodemon concurrently #install as dev devDependencies(it is during development)
 #with -D flag it installs in package.json as bellow:
 npm i dotenv #for easily managing environment variables
+npm i mongoose # object mapper!For querying your DB.Allows you to  define the structure of your collections through schemas!
+npm i colors #add colors to your console. Optional!
+npm i bcryptjs #encrypt passwords
+npm i express-async-handler #Simple middleware for handling exceptions inside of async express routes and passing them to your express error handlers
 ```
 ```json
 "devDependencies": {

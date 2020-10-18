@@ -4,7 +4,7 @@ import {Navigationbar} from "./components/Navigationbar";
 import {Footer} from "./components/Footer"
 import {Container} from "react-bootstrap";
 import './App.css';
-import List from "./components/List"
+import Items from "./components/Items"
 import Description from "./components/Description";
 
 function App() {
@@ -13,8 +13,8 @@ function App() {
         <Navigationbar />
         <main>
             <Container><h1>Latest hot sales!</h1></Container>
-            <Route path="/" component={List} exact /> {/*    exact will match the exact coordinate localhost:3000/    */}
-            <Route path="/details/:id" component={Description} /> {/*    click on Item it will take you to Descriptions localhost:3000/details/2    */}
+            <Route path="/" component={Items} exact /> {/*    exact will match the exact coordinate localhost:3000/    */}
+            <Route path="/:id" component={Description} /> {/*    click on Item it will take you to Descriptions localhost:3000/details/2    */}
         </main>
         <Footer />
     </Router>
