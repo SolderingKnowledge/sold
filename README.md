@@ -15,6 +15,7 @@ npm i mongoose # object mapper!For querying your DB.Allows you to  define the st
 npm i colors #add colors to your console. Optional!
 npm i bcryptjs #encrypt passwords
 npm i express-async-handler #Simple middleware for handling exceptions inside of async express routes and passing them to your express error handlers
+npm i jsonwebtoken #jwt
 ```
 ```json
 "devDependencies": {

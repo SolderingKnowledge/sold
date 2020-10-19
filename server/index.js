@@ -14,11 +14,14 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js"; //es6 Node rule to include file extentions
 import colors from "colors";
 import itemRoutes from "./routes/itemRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 //!!!order of these matter!!!
 dotenv.config() //1) initializing it the process.env
 connectDB(); //2) Connecting to DB
 const app = express(); //3) Running express App!
+
+app.use(express.json());// allows accept json data in the body
 
 // url: localhost:5000/api/list
 // method: GET
@@ -35,6 +38,7 @@ const app = express(); //3) Running express App!
 
 //Redirecting to different folders
 app.use("/api/items", itemRoutes);
+app.use("/api/users", userRoutes);
 
 //Error messages to give
 app.use((err, req, res, next) => {

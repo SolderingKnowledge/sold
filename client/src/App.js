@@ -7,6 +7,7 @@ import './App.css';
 import Items from "./components/Items"
 import Description from "./components/Description";
 import Cart from "./components/Cart";
+import LoginScreen from "./screens/LoginScreen";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Navigationbar />
         <main>
             <Container><h1>Latest hot sales!</h1></Container>
+            <Route path='/login' component={LoginScreen} />
             <Route path="/" component={Items} exact /> {/*    exact will match the exact coordinate localhost:3000/    */}
             <Route path="/item/:id" component={Description} /> {/*    click on Item it will take you to Descriptions localhost:3000/details/2    */}
             <Route path="/cart/:id?" component={Cart} /> {/* id is optional */}

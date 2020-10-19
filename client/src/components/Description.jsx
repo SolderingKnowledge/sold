@@ -89,7 +89,8 @@ import Spinner from "./Spinner";
 function Description({ history,match}) {
 
     const [qty , setQty] = useState(1);
-    const dispatch = useDispatch();
+
+    const dispatch = useDispatch();//"useDispatch" cannot be called inside a callback that is why you declare it and call it in line
 
     const itemDetailsState = useSelector( state => state.itemDetailsState );
     const { loading, error, item } = itemDetailsState;
