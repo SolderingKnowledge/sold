@@ -6,6 +6,7 @@ import {Container} from "react-bootstrap";
 import './App.css';
 import Items from "./components/Items"
 import Description from "./components/Description";
+import Cart from "./components/Cart";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <main>
             <Container><h1>Latest hot sales!</h1></Container>
             <Route path="/" component={Items} exact /> {/*    exact will match the exact coordinate localhost:3000/    */}
-            <Route path="/:id" component={Description} /> {/*    click on Item it will take you to Descriptions localhost:3000/details/2    */}
+            <Route path="/item/:id" component={Description} /> {/*    click on Item it will take you to Descriptions localhost:3000/details/2    */}
+            <Route path="/cart/:id?" component={Cart} /> {/* id is optional */}
         </main>
         <Footer />
     </Router>

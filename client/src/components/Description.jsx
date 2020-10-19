@@ -1,10 +1,11 @@
-// import React, {useState, useEffect} from 'react'
-import React, {useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
+// import React, {useEffect} from 'react'
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {Row, Col, Image, ListGroup, Card, Button} from "react-bootstrap";
+import {Row, Col, Image, ListGroup, Card, Button, Form} from "react-bootstrap";
 import Rating from "./Rating";
 import { getItemDetails } from "../actions/itemsAction";
+// import { addToCart } from "../actions/cartAction";
 import Alert from "./Alert";
 import Spinner from "./Spinner";
 // import list from "../list.json";
@@ -85,7 +86,9 @@ import Spinner from "./Spinner";
 
 // export default Description
 
-function Description({match}) {
+function Description({ history,match}) {
+
+    const [qty , setQty] = useState(1);
     const dispatch = useDispatch();
 
     const itemDetailsState = useSelector( state => state.itemDetailsState );
@@ -94,6 +97,10 @@ function Description({match}) {
     useEffect(()=>{
         dispatch(getItemDetails(match.params.id));
     }, [dispatch, match]);// useEffect it is the same as componentDidMount();
+
+    const redirectToCart = () => {
+        history.push(`/cart/${match.params.id}?qty=${qty}`)
+    }
 
     // const item = list.find(i => i.id === match.params.id);
     return (
@@ -131,7 +138,7 @@ function Description({match}) {
                                         Price: 
                                     </Col>
                                     <Col>
-                                        <strong>{item.price}</strong>
+                                        <strong>${item.price}</strong>
                                     </Col>
                                 </Row>
                             </ListGroup.Item>
@@ -145,8 +152,36 @@ function Description({match}) {
                                     </Col>
                                 </Row>
                             </ListGroup.Item>
+
+                            {item.inStock > 0 && (
+                                <ListGroup.Item>
+                                    <Row>
+                                    <Col>Qty</Col>
+                                    <Col>
+                                        <Form.Control
+                                        as='select'
+                                        value={qty}
+                                        onChange={(e) => setQty(e.target.value)}
+                                        >
+                                        {[...Array(item.inStock).keys()].map(
+                                            (x) => (
+                                            <option key={x + 1} value={x + 1}>
+                                                {x + 1}
+                                            </option>
+                                            )
+                                        )}
+                                        </Form.Control>
+                                    </Col>
+                                    </Row>
+                                </ListGroup.Item>
+                            )}
+
                             <ListGroup.Item>
-                                <Button className="btn-block" type="button" disabled={item.inStock == 0}
+                                <Button 
+                                    className="btn-block" 
+                                    type="button" 
+                                    disabled={item.inStock == 0}
+                                    onClick={redirectToCart}
                                 >Add to cart</Button>
                             </ListGroup.Item>
                         </ListGroup>
